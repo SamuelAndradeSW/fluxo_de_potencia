@@ -34,3 +34,46 @@ Ao final deste trabalho, espera-se ter desenvolvido o cálculo de fluxo de potê
 
 ![IEEE](https://github.com/SamuelAndradeSW/fluxo_de_potencia/blob/main/fluxo%20de%20potencia/data/IEEE%2014%20barras.png)
 
+
+## 3 - Desenvolvimento
+
+O cálculo do fluxo de potência não-linear é um problema matemático que envolve a solução de um sistema de equações não-lineares. Para um sistema elétrico de potência com n barramentos, as equações de fluxo de potência podem ser representadas por:
+
+![equações](https://github.com/SamuelAndradeSW/fluxo_de_potencia/blob/main/fluxo%20de%20potencia/data/equa%C3%A7%C3%B5es%20de%20fluxo%20de%20pot%C3%AAncia.png)
+
+onde Pi e Qi são as componentes ativas e reativas da potência na barra i, Vi é a magnitude da tensão na barra i, Gij e Bij são as partes real e imaginária da admitância entre as barras i e j, respectivamente, e θij é a diferença de fase entre as barras i e j.
+
+A solução do sistema de equações não-lineares pode ser obtida por meio de métodos
+numéricos, como o método de Newton-Raphson. O método de Newton-Raphson é um método
+iterativo que busca a solução do sistema de equações a partir de um valor inicial. A cada iteração, o método calcula a matriz jacobiana do sistema de equações, que é uma matriz n × n cujos elementos são as derivadas parciais das equações em relação às variáveis do sistema. Em seguida, o método calcula a solução aproximada do sistema de equações por meio da seguinte equação:
+
+![jacobiana](https://github.com/SamuelAndradeSW/fluxo_de_potencia/blob/main/fluxo%20de%20potencia/data/matriz%20jacobiana.png)
+
+onde ∆θ e ∆V são os vetores de correção das variáveis de fase e magnitude, respectivamente, H, N, M e L são as submatrizes da jacobiana, rθ e rV são os vetores das equações não-lineares, representando as diferenças entre as potências ativas e reativas calculadas e as potências ativas e reativas medidas.
+
+
+## 4 Resultados:
+
+Para a implementação do Fluxo de Potência Não-Linear com o Método de Newton-Raphson
+em Python, foram realizados testes no sistema IEEE 14 Barras com análise de contingência (n-1) em que foram retiradas as Linhas de Transmissão do Sistema (exceto as LT’s com LTC).
+
+Os resultados obtidos mostraram uma convergência do método em um número satisfatório
+de iterações, indicando que o algoritmo foi bem-sucedido em calcular o fluxo de potência no sistema elétrico em questão. Além disso, foi possível observar a mudança na distribuição de potência ativa e reativa em diferentes barras do sistema após a contingência (n-1) ser aplicada.
+
+## 5 Conclusão
+
+Diante do exposto, o presente trabalho teve como objetivo principal o desenvolvimento de
+um algoritmo para o cálculo do Fluxo de Potência Não-Linear do Sistema IEEE 14 Barras com
+análise de contingência "(n-1)"e, posteriormente, a apresentação dos resultados obtidos.
+
+Foi possível verificar que o método de Newton-Raphson se mostrou eficiente para a solução
+do sistema não-linear de equações, permitindo a obtenção de resultados precisos e confiáveis. Além disso, os resultados obtidos mostraram a estabilidade do sistema elétrico de potência estudado, mesmo em situações de contingência.
+
+Portanto, conclui-se que o algoritmo desenvolvido neste trabalho pode ser considerado
+uma ferramenta útil e importante para o estudo de sistemas elétricos de potência, permitindo a realização de análises de contingência de forma precisa e eficiente.
+
+
+## Referência
+
+Monticelli, Alcir José. Fluxo de carga em redes de energia elétrica. São Paulo: Editora
+Blucher, 1983.
